@@ -5,6 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
+import java.util.List;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -13,11 +16,13 @@ public class Produto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idProduto;
+    private Long id;
+    private String nome;
+    private String descricao;
+    private BigDecimal valor;
+    @OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
+    private List<Fardo> fardos;
 
-    private String volumeGarrafa;
-
-    private Integer fardosPorPalete;
-
-    private Integer garrafasPorFardo;
 }
+
+
