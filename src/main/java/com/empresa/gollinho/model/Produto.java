@@ -1,12 +1,16 @@
 package com.empresa.gollinho.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
 @Data
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 public class Produto {
 
  @Id
@@ -16,8 +20,11 @@ public class Produto {
     private String nome;
     private String descricao;
     private BigDecimal valor;
-    @OneToMany
-    private Sabor sabor;
+    private String sabor;
+    private int volumeGarrafa;
+    private int fardosPallet;
+    private int garrafasPorFardo;
+
 
 }
 
