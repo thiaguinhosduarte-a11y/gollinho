@@ -1,9 +1,6 @@
 package com.empresa.gollinho.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,4 +13,8 @@ public class Fardos {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     Long id;
+    @ManyToOne
+    @JoinColumn(name = "item_nf_id")
+    private ItemNF itemNf;
+
 }

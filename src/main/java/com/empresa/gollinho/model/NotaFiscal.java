@@ -17,15 +17,15 @@ import java.util.List;
 public class NotaFiscal {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private Long codigoNota;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private String id;
     @Enumerated(EnumType.STRING)
     private StatusNotaFiscal status;
     @OneToMany(mappedBy = "notaFiscal")
     private List<ItemNF> itemNF;
     private String cnpjFrnecedor;
-    private LocalDate dataRecebimento;
+    private LocalDate data_emissao;
+    private LocalDate data_movimentacao;
     private BigDecimal valorFinal;
 
 }
