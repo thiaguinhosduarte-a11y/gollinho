@@ -28,7 +28,7 @@ public class Produto {
     @Column(name = "garrafas_por_fardo")
     private Integer garrafasPorFardo;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "sabor_id")
     private Sabor sabor;
 }

@@ -27,5 +27,6 @@ public class NotaFiscal {
     private LocalDate data_emissao;
     private LocalDate data_movimentacao;
     private BigDecimal valorFinal;
+    private Integer doca;
 
 }
