@@ -1,7 +1,7 @@
 package com.empresa.gollinho.controller;
 
-import com.empresa.gollinho.model.NotaFiscal;
-import com.empresa.gollinho.service.NotaFiscalService;
+import com.empresa.gollinho.model.Fardo;
+import com.empresa.gollinho.service.FardoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,46 +10,46 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/notas-fiscais")
-public class NotaFiscalController {
+@RequestMapping("/api/fardos")
+public class FardoController {
 
     @Autowired
-    private final NotaFiscalService service;
+    private final FardoService service;
 
-    public NotaFiscalController(NotaFiscalService service) {
+    public FardoController(FardoService service) {
         this.service = service;
     }
 
     @GetMapping
-    public ResponseEntity<List<NotaFiscal>> listarTodas() {
-        return ResponseEntity.ok(service.listarTodas());
+    public ResponseEntity<List<Fardo>> listarTodos() {
+        return ResponseEntity.ok(service.listarTodos());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<NotaFiscal> buscarPorId(@PathVariable String id) {
+    public ResponseEntity<Fardo> buscarPorId(@PathVariable Long id) {
         return service.buscarPorId(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
     }
 
     @PostMapping
-    public ResponseEntity<NotaFiscal> criar(@RequestBody NotaFiscal notaFiscal) {
-        NotaFiscal novaNota = service.salvar(notaFiscal);
-        return ResponseEntity.status(HttpStatus.CREATED).body(novaNota);
+    public ResponseEntity<Fardo> criar(@RequestBody Fardo fardo) {
+        Fardo novoFardo = service.salvar(fardo);
+        return ResponseEntity.status(HttpStatus.CREATED).body(novoFardo);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<NotaFiscal> atualizar(@PathVariable String id, @RequestBody NotaFiscal notaFiscal) {
+    public ResponseEntity<Fardo> atualizar(@PathVariable Long id, @RequestBody Fardo fardo) {
         try {
-            NotaFiscal notaAtualizada = service.atualizar(id, notaFiscal);
-            return ResponseEntity.ok(notaAtualizada);
+            Fardo fardoAtualizado = service.atualizar(id, fardo);
+            return ResponseEntity.ok(fardoAtualizado);
         } catch (RuntimeException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletar(@PathVariable String id) {
+    public ResponseEntity<Void> deletar(@PathVariable Long id) {
         if (service.buscarPorId(id).isPresent()) {
             service.deletar(id);
             return ResponseEntity.noContent().build();

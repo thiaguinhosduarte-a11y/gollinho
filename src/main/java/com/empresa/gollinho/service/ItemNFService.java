@@ -1,7 +1,7 @@
-package com.empresa.gollinho.services;
+package com.empresa.gollinho.service;
 
 import com.empresa.gollinho.model.ItemNF;
-import com.empresa.gollinho.model.Fardos;
+import com.empresa.gollinho.model.Fardo;
 import com.empresa.gollinho.repository.ItemNFRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ public class ItemNFService {
 
         // Garante a bidirecionalidade: vincula cada fardo ao ItemNF
         if (itemNF.getFardos() != null) {
-            for (Fardos fardo : itemNF.getFardos()) {
+            for (Fardo fardo : itemNF.getFardos()) {
                 fardo.setItemNf(itemNF);
             }
         }
@@ -51,7 +51,7 @@ public class ItemNFService {
         // Atualiza a lista de fardos em cascata de forma limpa
         itemExistente.getFardos().clear();
         if (itemNFAtualizado.getFardos() != null) {
-            for (Fardos fardo : itemNFAtualizado.getFardos()) {
+            for (Fardo fardo : itemNFAtualizado.getFardos()) {
                 fardo.setItemNf(itemExistente);
                 itemExistente.getFardos().add(fardo);
             }

@@ -1,7 +1,8 @@
 package com.empresa.gollinho.controller;
 
 import com.empresa.gollinho.model.Sabor;
-import com.empresa.gollinho.services.SaborService;
+import com.empresa.gollinho.service.SaborService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,7 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/sabores")
 public class SaborController {
-
+    @Autowired
     private final SaborService saborService;
 
     public SaborController(SaborService saborService) {

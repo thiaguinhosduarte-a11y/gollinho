@@ -19,7 +19,7 @@ public class ItemNF {
     private BigDecimal valorTotal;
     private Double qtdLitros;
     @OneToMany(mappedBy = "itemNf", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Fardos> fardos;
+    private List<Fardo> fardos;
     @ManyToOne
     @JoinColumn(name = "nota_fiscal_id")
     private NotaFiscal notaFiscal;
