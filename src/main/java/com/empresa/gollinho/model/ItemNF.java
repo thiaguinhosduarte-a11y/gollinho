@@ -6,23 +6,22 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Entity
 public class ItemNF {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
+
     private BigDecimal valorTotal;
+
     private Double qtdLitros;
-    @OneToMany(mappedBy = "itemNf", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Fardo> fardos;
+
     @ManyToOne
     @JoinColumn(name = "nota_fiscal_id")
     private NotaFiscal notaFiscal;
-
-
 }
