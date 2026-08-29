@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 public class Fardos {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
     @ManyToOne
     @JoinColumn(name = "item_nf_id")

@@ -10,8 +10,8 @@ import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
 @Data
+@Entity
 public class ItemNF {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
