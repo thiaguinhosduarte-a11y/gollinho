@@ -1,4 +1,4 @@
-package com.empresa.gollinho.services;
+package com.empresa.gollinho.service;
 
 import com.empresa.gollinho.model.Sabor;
 import com.empresa.gollinho.repository.SaborRepository;
