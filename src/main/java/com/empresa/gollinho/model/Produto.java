@@ -20,10 +20,10 @@ public class Produto {
     private String nome;
     private String descricao;
     private BigDecimal valor;
-    private String sabor;
-    private int volumeGarrafa;
-    private int fardosPallet;
-    private int garrafasPorFardo;
+    @OneToOne
+    private Sabor sabor;
+
+
 
 
 }
