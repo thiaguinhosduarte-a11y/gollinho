@@ -30,11 +30,16 @@ public class ProdutoService {
 
     public Produto atualizar(Long id, Produto produtoAtualizado) {
         return produtoRepository.findById(id).map(produto -> {
-            produto.setNome(produtoAtualizado.getNome());
-            produto.setDescricao(produtoAtualizado.getDescricao());
-            produto.setValor(produtoAtualizado.getValor());
+
+            produto.setNome_produto(produtoAtualizado.getNome_produto());
+            produto.setVolumeGarrafa(produtoAtualizado.getVolumeGarrafa());
+            produto.setFardosPorPalete(produtoAtualizado.getFardosPorPalete());
+            produto.setGarrafasPorFardo(produtoAtualizado.getGarrafasPorFardo());
+
             return produtoRepository.save(produto);
-        }).orElseThrow(() -> new RuntimeException("Produto não encontrado com o ID: " + id));
+
+        }).orElseThrow(() ->
+                new RuntimeException("Produto não encontrado com o ID: " + id));
     }
 
     public void deletar(Long id) {

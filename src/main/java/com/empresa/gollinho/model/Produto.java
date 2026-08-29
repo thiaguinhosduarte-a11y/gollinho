@@ -9,15 +9,22 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity
+@Table(name = "produto")
 public class Produto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_produto")
     private Long idProduto;
 
+    private String nome_produto;
+
+    @Column(name = "volume_garrafa", length = 20)
     private String volumeGarrafa;
 
+    @Column(name = "fardos_por_palete")
     private Integer fardosPorPalete;
 
+    @Column(name = "garrafas_por_fardo")
     private Integer garrafasPorFardo;
 }
