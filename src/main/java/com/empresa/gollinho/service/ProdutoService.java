@@ -31,7 +31,7 @@ public class ProdutoService {
     public Produto atualizar(Long id, Produto produtoAtualizado) {
         return produtoRepository.findById(id).map(produto -> {
 
-            produto.setNome_produto(produtoAtualizado.getNome_produto());
+            produto.setNomeProduto(produtoAtualizado.getNomeProduto());
             produto.setVolumeGarrafa(produtoAtualizado.getVolumeGarrafa());
             produto.setFardosPorPalete(produtoAtualizado.getFardosPorPalete());
             produto.setGarrafasPorFardo(produtoAtualizado.getGarrafasPorFardo());

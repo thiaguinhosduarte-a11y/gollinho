@@ -17,7 +17,7 @@ public class Produto {
     @Column(name = "id_produto")
     private Long idProduto;
 
-    private String nome_produto;
+    private String nomeProduto;
 
     @Column(name = "volume_garrafa", length = 20)
     private String volumeGarrafa;
@@ -27,4 +27,8 @@ public class Produto {
 
     @Column(name = "garrafas_por_fardo")
     private Integer garrafasPorFardo;
+
+    @OneToOne
+    @JoinColumn(name = "sabor_id")
+    private Sabor sabor;
 }
