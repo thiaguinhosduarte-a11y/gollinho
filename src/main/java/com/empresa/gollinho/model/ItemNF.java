@@ -1,30 +1,24 @@
 package com.empresa.gollinho.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
-
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Data
 public class ItemNF {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.UUID)
     Long id;
-
     private Long codigoNf;
     private String idPallet;
     private int cnpj;
-    private String statusNf;
-    private BigDecimal valorFinal;
-    private String dataRecebimento;
-
-
-
-
+    @ManyToOne
+    @JoinColumn(name = "'nota_fiscal_id'")
+    private NotaFiscal notaFiscal;
 
 
 }

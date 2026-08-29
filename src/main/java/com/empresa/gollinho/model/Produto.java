@@ -7,23 +7,18 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor
 public class Produto {
 
- @Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
-
+    private Long id;
     private String nome;
     private String descricao;
     private BigDecimal valor;
-    @OneToOne
-    private Sabor sabor;
-
-
 
 
 }
